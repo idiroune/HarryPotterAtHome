@@ -18,7 +18,6 @@ class Introduction {
         LearnSpell learnSpells = new LearnSpell();
         SortingHat sortingHat = new SortingHat();
         ListPotions potions = new ListPotions();
-        Random random = new Random();
         String myPet;
         boolean ok = false;
 
@@ -138,13 +137,36 @@ class MakeCharacter {
 
         MakeCharacter.wizard = wizard;
 
+        Enemy enemy = new Enemy("Voldemor", 5, 50, 100, 20, "oui");
+        Fight fight = new Fight(wizard, enemy);
+        fight.BattleBegin();
+
+        System.out.println(wizard.getHouse());
+        System.out.println(wizard.getWizardDamage());
+        System.out.println(wizard.getWizardHealth());
+        System.out.println(wizard.getWizardAccuracy());
+
+        wizard.setBonusDamage(wizard.getBonusDamage() + 5);
+
+        System.out.println(wizard.getWizardDamage());
+
+        wizard.ResetWizardStatut();
+        System.out.println(wizard.getWizardDamage());
+        System.out.println(wizard.getWizardHealth());
+        System.out.println(wizard.getWizardAccuracy());
+
         System.out.println(wizard.getHouse());
 
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardBonusDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardBonusDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardBonusDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardBonusDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardBonusDamage()));
+        System.out.println(wizard.getWizardHealth());
+        System.out.println(wizard.getWizardDamage());
+        System.out.println(wizard.getWizardAccuracy());
+
+
+        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
+        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
+        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
+        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
+        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
 
 
 

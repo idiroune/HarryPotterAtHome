@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.List;
-import java.util.Random;
 
 class Wizard extends Character{
 
@@ -14,37 +13,30 @@ class Wizard extends Character{
         this.potions = potions;
         this.pet = pet;
 
-        if (house == "Poufsouffle") {
-            setPotionEfficacity(2);
+        setWizardDamage(getBasicWizardDamage() + getBonusDamage());
+        setWizardAdditionalDamage(getBasicWizardAdditionalDamage() + getBonusBonusDamage());
+        setWizardHealth(getBasicWizardHealth() + getBonusHealth());
+        setWizardAccuracy(getBasicWizardAccuracy() + getBonusAccuracy());
 
-        } else if (house == "Serpentard") {
-            setWizardDamage(20);
-            setWizardBonusDamage(20);
-
-        } else if (house == "Gryffondor") {
-            setWizardHealth(80);
-
-        } else if (house == "Serdaigle") {
-            setWizardAccuracy(3);
+        switch (house) {
+            case "Poufsouffle" -> setPotionEfficacity(2);
+            case "Serpentard" -> setWizardAdditionalDamage(getBasicWizardAdditionalDamage());
+            case "Gryffondor" -> setWizardHealth(getBasicGryffondorHealth());
+            case "Serdaigle" -> setWizardAccuracy(getBasicSerdaigleAccuracy());
         }
 
     }
     void ResetWizardStatut(){
 
-        setWizardDamage(15);
-        setWizardBonusDamage(15);
-        setWizardHealth(50);
-        setWizardAccuracy(1);
+        setWizardDamage(getBasicWizardDamage() + getBonusDamage());
+        setWizardAdditionalDamage(getBasicWizardAdditionalDamage() + getBonusBonusDamage());
+        setWizardHealth(getBasicWizardHealth() + getBonusHealth());
+        setWizardAccuracy(getBasicWizardAccuracy() + getBonusAccuracy());
 
-        if (house == "Serpentard") {
-            setWizardDamage(20);
-            setWizardBonusDamage(20);
-
-        } else if (house == "Gryffondor") {
-            setWizardHealth(80);
-
-        } else if (house == "Serdaigle") {
-            setWizardAccuracy(3);
+        switch (house) {
+            case "Serpentard" -> setWizardAdditionalDamage(getBasicWizardAdditionalDamage() + getBonusBonusDamage());
+            case "Gryffondor" -> setWizardHealth(getBasicGryffondorHealth() + getBonusHealth());
+            case "Serdaigle" -> setWizardAccuracy(getBasicSerdaigleAccuracy() + getBonusAccuracy());
         }
     }
 }

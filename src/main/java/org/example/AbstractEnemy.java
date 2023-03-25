@@ -1,12 +1,15 @@
 package org.example;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public abstract class AbstractEnemy extends Character {
 
-    public AbstractEnemy(String enemyname, int enemydamage, int enemyhealth, int enemyaccuracy){
+    @Getter@Setter protected String enemyName;
+    @Getter@Setter protected int enemyDamage;
+    @Getter@Setter protected int enemyAdditionalDamage;
+    @Getter@Setter protected int enemyHealth;
+    @Getter@Setter protected int enemyAccuracy;
 
-        this.enemyName = enemyname;
-        this.enemyDamage = enemydamage;
-        this.enemyHealth = enemyhealth;
-        this.enemyAccuracy = enemyaccuracy;
-    }
+    @Getter@Setter protected String defeatWay;
 }
