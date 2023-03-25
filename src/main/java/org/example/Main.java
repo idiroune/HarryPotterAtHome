@@ -137,7 +137,7 @@ class MakeCharacter {
 
         MakeCharacter.wizard = wizard;
 
-        Enemy enemy = new Enemy("Voldemor", 5, 50, 100, 20, "oui");
+        Enemy enemy = new Enemy("Voldemor", 5, 5, 100, 2, "oui");
         Fight fight = new Fight(wizard, enemy);
         fight.BattleBegin();
 
