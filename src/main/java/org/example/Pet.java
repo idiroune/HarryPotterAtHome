@@ -8,7 +8,7 @@ enum Pet {
     DOG("Chien"),
     OWL("Hibou");
 
-    @Getter private String myPet;
+    @Getter private final String myPet;
 
     Pet(String myPet){
         this.myPet = myPet;

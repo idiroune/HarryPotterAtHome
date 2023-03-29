@@ -1,6 +1,7 @@
-package org.example;
+package org.example.BattleAndDeath;
 
-import java.sql.Time;
+import org.example.*;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,11 +17,12 @@ public class Fight {
     public void BattleBegin() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
-
+        LearningSpell learningSpell = new LearningSpell("");
         Random random = new Random();
 
         int concentration = 0;
         int critical = 0;
+        int fireWork = 0;
 
         // Combat
         while (wizard.getWizardHealth() > 0 && enemy.getEnemyHealth() > 0) {
@@ -44,48 +46,65 @@ public class Fight {
 
 
             System.out.println("Que voulez-vous faire ?");
-            System.out.println("1. " + Color.ROUGE + "Attaquer" + Color.RESET);
-            System.out.println("2. " + Color.BLEU + "Utiliser une potion" + Color.RESET);
-            if(concentration >= 3) {
-                System.out.println("3. "+ Color.VERT + "Esquiver" + Color.RESET);
+            if (enemy.getDefeatWay().equals("")) {
+                System.out.println("1. " + Color.ROUGE + "Attaquer" + Color.RESET);
             }
-            if(critical == 1) {
-                System.out.println("3. "+ Color.JAUNE + "Attaque puissante" + Color.RESET);
+            else {
+                System.out.println("1. " + Color.ROUGE + "Sort" + Color.RESET);
+            }
+            System.out.println("2. " + Color.BLEU + "Utiliser une potion" + Color.RESET);
+            if(fireWork == 4) {
+                System.out.println("3. " + Color.JAUNE + "Feux d'artifice !!" + Color.RESET);
+
+            }
+            else {
+                if (concentration >= 3) {
+                    System.out.println("3. " + Color.VERT + "Esquiver" + Color.RESET);
+                }
+                if (critical == 1) {
+                    System.out.println("3. " + Color.JAUNE + "Attaque puissante" + Color.RESET);
+                }
             }
 
             String choice = scanner.nextLine();
 
             if(choice.equalsIgnoreCase("1") || (choice.equalsIgnoreCase("3") && critical == 1)) {
-
-                System.out.println("Vous attaquez " + Color.MAGENTA + enemy.getEnemyName() + Color.RESET + ".\n");
-                Thread.sleep(2000);
-                System.out.print("Eeeeet...");
-                Thread.sleep(2500);
-
-                if (wizardAccuracy == 0 && critical == 0) {
-                    System.out.println("C'est loupé...");
-                } else {
-
-                    if (wizardAttack == wizard.getWizardDamage() + wizard.getWizardAdditionalDamage() || critical == 1) {
-
-                        wizardAttack = wizard.getWizardDamage() + wizard.getWizardAdditionalDamage();
-                        System.out.println(Color.JAUNE + "C'est un critique !" + Color.RESET + "\n");
-                        Thread.sleep(1000);
-                        System.out.println("Vous infligez " + Color.JAUNE + wizardAttack + Color.RESET + " de dégâts à " + Color.MAGENTA + enemy.getEnemyName() + Color.RESET);
-                        enemy.setEnemyHealth(enemy.getEnemyHealth() - wizardAttack);
+                if (!enemy.getDefeatWay().equals("")) {
+                    learningSpell.UseSpell();
+                    if(!learningSpell.getSpellUsed().equals(enemy.getDefeatWay()) && !learningSpell.getSpellUsed().equals("")) {
+                        System.out.println("Non ! Il n'y à rien qui vous permet d'utiliser ce sort !");
                     }
-                    else {
-                        System.out.println("Vous infligez " + Color.ROUGE + wizardAttack + Color.RESET + " de dégâts à " + Color.MAGENTA + enemy.getEnemyName() + Color.RESET);
-                        enemy.setEnemyHealth(enemy.getEnemyHealth() - wizardAttack);
-                    }
-                    concentration ++;
+                }
+                if(learningSpell.getSpellUsed().equals(enemy.getDefeatWay()) || enemy.getDefeatWay().equals("")) {
 
-                    if (enemy.getEnemyHealth() <= 0) {
-                        break;
-                    }
-                    else {
-                        Thread.sleep(2000);
-                        System.out.println("Il lui reste " + Color.MAGENTA + enemy.getEnemyHealth()+ Color.RESET + " de vie.");
+                    System.out.println("Vous attaquez " + Color.MAGENTA + enemy.getEnemyName() + Color.RESET + ".\n");
+                    Thread.sleep(2000);
+                    System.out.print("Eeeeet...");
+                    Thread.sleep(2500);
+
+                    if (wizardAccuracy == 0 && critical == 0) {
+                        System.out.println("C'est loupé...");
+                    } else {
+
+                        if (wizardAttack == wizard.getWizardDamage() + wizard.getWizardAdditionalDamage() || critical == 1) {
+
+                            wizardAttack = wizard.getWizardDamage() + wizard.getWizardAdditionalDamage();
+                            System.out.println(Color.JAUNE + "C'est un critique !" + Color.RESET + "\n");
+                            Thread.sleep(1000);
+                            System.out.println("Vous infligez " + Color.JAUNE + wizardAttack + Color.RESET + " de dégâts à " + Color.MAGENTA + enemy.getEnemyName() + Color.RESET);
+                            enemy.setEnemyHealth(enemy.getEnemyHealth() - wizardAttack);
+                        } else {
+                            System.out.println("Vous infligez " + Color.ROUGE + wizardAttack + Color.RESET + " de dégâts à " + Color.MAGENTA + enemy.getEnemyName() + Color.RESET);
+                            enemy.setEnemyHealth(enemy.getEnemyHealth() - wizardAttack);
+                        }
+                        concentration++;
+
+                        if (enemy.getEnemyHealth() <= 0) {
+                            break;
+                        } else {
+                            Thread.sleep(2000);
+                            System.out.println("Il lui reste " + Color.MAGENTA + enemy.getEnemyHealth() + Color.RESET + " de vie.");
+                        }
                     }
                 }
             }
@@ -94,12 +113,17 @@ public class Fight {
                 SomethingWithPotions.UsePotion();
 
             }
-            else if(choice.equalsIgnoreCase("3") && concentration >= 3) {
+            else if(choice.equalsIgnoreCase("3") && concentration >= 3 && fireWork != 0) {
 
                 System.out.println("Les mouvements de votre adversaire se font plus lent... vous essayez d'esquiver la prochaine attaque.");
                 concentration = 0;
                 dodge = (3 * enemy.getEnemyAccuracy()) / 2;
 
+
+            }else if(choice.equalsIgnoreCase("3") && fireWork == 4) {
+
+                System.out.println("Feux d'artifices !!!!!!");
+                break;
 
             }else if (!choice.equals("1") && !choice.equals("2") && concentration < 3 ){
 
@@ -156,7 +180,6 @@ public class Fight {
 
                 }
                 if (wizard.getWizardHealth() <= 0) {
-                    System.out.println("Vous êtes mort.");
                     break;
                 } else {
                     Thread.sleep(2000);
@@ -164,10 +187,17 @@ public class Fight {
                 }
             }
 
-
+            if(enemy.getEnemyName().equals("Dolores Ombrage")){
+                fireWork++;
+                Thread.sleep(2000);
+                switch (fireWork){
+                    case 2, 4 -> System.out.println("Vous obtenez un feux d'artifices !");
+                }
+            }
         }
         if (wizard.getWizardHealth() <= 0) {
-            /*Fermer console avec message sur pendentif remontant dans le temps*/
+            Death death = new Death("PV");
+            death.WizardDeath();
         }
     }
 }

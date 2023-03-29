@@ -1,14 +1,31 @@
 package org.example;
 
 
-import java.util.Random;
+import org.example.BattleAndDeath.Death;
+import org.example.BattleAndDeath.Fight;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         Introduction Introduction = new Introduction();
+        FirstLevel firstLevel = new FirstLevel();
+        SecondLevel secondLevel = new SecondLevel();
+        ThirdLevel thirdLevel = new ThirdLevel();
+        FourthLevel fourthLevel = new FourthLevel();
+        FifthLevel fifthLevel = new FifthLevel();
+        SixthLevel sixthLevel = new SixthLevel();
+        SeventhLevel seventhLevel = new SeventhLevel();
+
         Introduction.Introduction();
+
+
+        firstLevel.FirstLevel();
+        secondLevel.SecondLevel();
+
+
+
 
     }
 }
@@ -121,123 +138,203 @@ class Introduction {
 
 
         Wizard wizard = new Wizard(wizardname, sortingHat.getRandomHouse(), learnSpells.getLearntSpells(), potions.getPotions(), myPet);
-        System.out.println(wizard.getPet());
+
         /*ajouter dans les composants la baguette*/
         MakeCharacter MakeCharacter = new MakeCharacter();
-        MakeCharacter.MakeCharacter(wizard);
+        MakeCharacter.makeCharacter(wizard);
     }
 }
 
 
-class MakeCharacter {
-    private static Wizard wizard;
-
-    public void MakeCharacter(Wizard wizard) throws InterruptedException {
-        Random random = new Random();
-
-        MakeCharacter.wizard = wizard;
-
-        Enemy enemy = new Enemy("Voldemor", 5, 5, 100, 2, "oui");
-        Fight fight = new Fight(wizard, enemy);
-        fight.BattleBegin();
-
-        System.out.println(wizard.getHouse());
-        System.out.println(wizard.getWizardDamage());
-        System.out.println(wizard.getWizardHealth());
-        System.out.println(wizard.getWizardAccuracy());
-
-        wizard.setBonusDamage(wizard.getBonusDamage() + 5);
-
-        System.out.println(wizard.getWizardDamage());
-
-        wizard.ResetWizardStatut();
-        System.out.println(wizard.getWizardDamage());
-        System.out.println(wizard.getWizardHealth());
-        System.out.println(wizard.getWizardAccuracy());
-
-        System.out.println(wizard.getHouse());
-
-        System.out.println(wizard.getWizardHealth());
-        System.out.println(wizard.getWizardDamage());
-        System.out.println(wizard.getWizardAccuracy());
-
-
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
-        System.out.println(wizard.getWizardDamage() + random.nextInt(wizard.getWizardAdditionalDamage()));
-
-
-
-        System.out.println(random.nextInt(wizard.getWizardAccuracy()));
-        System.out.println(random.nextInt(wizard.getWizardAccuracy()));
-        System.out.println(random.nextInt(wizard.getWizardAccuracy()));
-        System.out.println(random.nextInt(wizard.getWizardAccuracy()));
-        System.out.println(random.nextInt(wizard.getWizardAccuracy()));
-
-
-        LearningSpell learningSpell = new LearningSpell("Sort de soin", "Sort de protection");
-        learningSpell.learnSpell();
-        learningSpell.learntSpell();
+class FirstLevel{
+    public void FirstLevel() throws InterruptedException{
+        Wizard wizard = MakeCharacter.getWizard();
 
         SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
         SomethingWithPotions.MakePotion();
-        SomethingWithPotions.UsePotion();
 
-
-        System.out.println(wizard.getHouse());
-
-        System.out.println(wizard.getWizardHealth());
-        System.out.println(wizard.getWizardDamage());
-        System.out.println(wizard.getWizardAccuracy());
-
-        wizard.ResetWizardStatut();
-
-        System.out.println(wizard.getWizardHealth());
-        System.out.println(wizard.getWizardDamage());
-        System.out.println(wizard.getWizardAccuracy());
-
-
-        System.out.println(wizard.getWizardName());
-
-
-
-        Thread.sleep(1500);
-        System.out.println("Je suis le Choipeaux, en lisant au travers de ton âme je peux voir la maison qui" +
-                "\nte correspond le plus parmi Gryffondor, Poufsouffle, Serdaigle et Serpentard...");
-
-
-        wizard.setWizardName("Joooooooooooooe");
-        System.out.println(wizard.getWizardName());
-
-        FirstLevel FirstLevel = new FirstLevel();
-        FirstLevel.Battle1();
-
-    }
-    public static Wizard getWizard() {
-        return wizard;
-    }
-}
-
-class FirstLevel{
-    public void Battle1() throws InterruptedException{
-        Wizard wizard = MakeCharacter.getWizard();
-        wizard.setWizardName("Joe");
-        System.out.println(wizard.getWizardName());
-        LearningSpell learningSpell2 = new LearningSpell("Sort de soin", "Sort de protection");
+        LearningSpell learningSpell2 = new LearningSpell("Wingardium Leviosa");
         learningSpell2.learnSpell();
-        learningSpell2.learntSpell();
 
+        Enemy enemy = new Enemy("Troll ", 5, 5, 100, 5, "Wingardium Leviosa");
+        Fight fight = new Fight(wizard, enemy);
+        fight.BattleBegin();
 
+        wizard.UpdateStatut();
     }
 }
 class SecondLevel{
-    public void Battle2()throws InterruptedException{
+    public void SecondLevel()throws InterruptedException{
         Wizard wizard = MakeCharacter.getWizard();
-        System.out.println(wizard.getWizardName());
-        wizard.setWizardName("Jc");
-        System.out.println(wizard.getWizardName());
 
+        SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
+        SomethingWithPotions.MakePotion();
+
+        LearningSpell learningSpell2 = new LearningSpell("Accio");
+        learningSpell2.learnSpell();
+
+        if(wizard.getHouse().equals("Griffondor")) {
+            Enemy enemy = new Enemy("Basilic ", 7, 7, 120, 5, "");
+            Fight fight = new Fight(wizard, enemy);
+            fight.BattleBegin();
+
+            wizard.UpdateStatut();
+        }
+    }
+}
+
+class ThirdLevel{
+    public void ThirdLevel()throws InterruptedException{
+        Wizard wizard = MakeCharacter.getWizard();
+
+        SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
+        SomethingWithPotions.MakePotion();
+
+        LearningSpell learningSpell2 = new LearningSpell("Expecto Patronum");
+        learningSpell2.learnSpell();
+
+        Enemy enemy = new Enemy("Détraqueurs", 9, 9, 140, 5, "Expecto Patronum");
+        Fight fight = new Fight(wizard, enemy);
+        fight.BattleBegin();
+
+        wizard.UpdateStatut();
+    }
+}
+
+class FourthLevel{
+    public void FourthLevel()throws InterruptedException{
+        Scanner scanner = new Scanner(System.in);
+
+        Wizard wizard = MakeCharacter.getWizard();
+
+        SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
+        SomethingWithPotions.MakePotion();
+
+        String SpellUse = "";
+
+        System.out.println("\n" + "Sorts appris : ");
+        for (int i = 0; i < wizard.getLearntSpell().size(); i++) {
+            System.out.println((i + 1) + ". " + wizard.getLearntSpell().get(i));
+        }
+
+        if (scanner.hasNextInt()) {
+
+            int SpellUseNumber = scanner.nextInt();
+
+            if (1 <= SpellUseNumber && SpellUseNumber <= wizard.getLearntSpell().size()) {
+                SpellUse = wizard.getLearntSpell().get(SpellUseNumber - 1);
+                System.out.println(SpellUse + " !!\n");
+
+            }
+            else {
+                Death death = new Death("WrongSpell");
+                death.WizardDeath();
+            }
+        }
+    }
+}
+
+class FifthLevel{
+    public void FifthLevel()throws InterruptedException{
+        Scanner scanner = new Scanner(System.in);
+
+        Wizard wizard = MakeCharacter.getWizard();
+
+        SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
+        SomethingWithPotions.MakePotion();
+
+        String SpellUse = "";
+
+        System.out.println("\n" + "Sorts appris : ");
+        for (int i = 0; i < wizard.getLearntSpell().size(); i++) {
+            System.out.println((i + 1) + ". " + wizard.getLearntSpell().get(i));
+        }
+
+        if (scanner.hasNextInt()) {
+
+            int SpellUseNumber = scanner.nextInt();
+
+            if (1 <= SpellUseNumber && SpellUseNumber <= wizard.getLearntSpell().size()) {
+                SpellUse = wizard.getLearntSpell().get(SpellUseNumber - 1);
+                System.out.println(SpellUse + " !!\n");
+
+            }
+            else {
+                Death death = new Death("WrongSpell");
+                death.WizardDeath();
+            }
+        }
+
+        wizard.UpdateStatut();
+    }
+}
+
+class SixthLevel{
+    public void SixthLevel()throws InterruptedException{
+        Scanner scanner = new Scanner(System.in);
+
+        Wizard wizard = MakeCharacter.getWizard();
+
+        SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
+        SomethingWithPotions.MakePotion();
+
+        String SpellUse = "";
+
+        System.out.println("\n" + "Sorts appris : ");
+        for (int i = 0; i < wizard.getLearntSpell().size(); i++) {
+            System.out.println((i + 1) + ". " + wizard.getLearntSpell().get(i));
+        }
+
+        if (scanner.hasNextInt()) {
+
+            int SpellUseNumber = scanner.nextInt();
+
+            if (1 <= SpellUseNumber && SpellUseNumber <= wizard.getLearntSpell().size()) {
+                SpellUse = wizard.getLearntSpell().get(SpellUseNumber - 1);
+                System.out.println(SpellUse + " !!\n");
+
+            }
+            else {
+                Death death = new Death("WrongSpell");
+                death.WizardDeath();
+            }
+        }
+
+        wizard.UpdateStatut();
+    }
+}
+
+class SeventhLevel{
+    public void SeventhLevel()throws InterruptedException{
+        Scanner scanner = new Scanner(System.in);
+
+        Wizard wizard = MakeCharacter.getWizard();
+
+        SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
+        SomethingWithPotions.MakePotion();
+
+        String SpellUse = "";
+
+        System.out.println("\n" + "Sorts appris : ");
+        for (int i = 0; i < wizard.getLearntSpell().size(); i++) {
+            System.out.println((i + 1) + ". " + wizard.getLearntSpell().get(i));
+        }
+
+        if (scanner.hasNextInt()) {
+
+            int SpellUseNumber = scanner.nextInt();
+
+            if (1 <= SpellUseNumber && SpellUseNumber <= wizard.getLearntSpell().size()) {
+                SpellUse = wizard.getLearntSpell().get(SpellUseNumber - 1);
+                System.out.println(SpellUse + " !!\n");
+
+            }
+            else {
+                Death death = new Death("WrongSpell");
+                death.WizardDeath();
+            }
+        }
+
+        wizard.UpdateStatut();
     }
 }

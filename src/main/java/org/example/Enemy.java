@@ -11,5 +11,4 @@ public class Enemy extends AbstractEnemy {
         this.enemyAccuracy = enemyAccuracy;
         this.defeatWay = deafeatWay;
     }
-
 }
