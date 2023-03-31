@@ -1,4 +1,4 @@
-package org.example;
+package com.isep.HarryPotter.CharacterAndEnemy;
 
 import lombok.Getter;
 import lombok.Setter;

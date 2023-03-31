@@ -1,4 +1,4 @@
-package org.example;
+package com.isep.HarryPotter.CharacterAndEnemy;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,16 +9,17 @@ public abstract class Character {
     @Getter protected String house;
     @Getter protected List<String> learntSpell;
     @Getter protected List<String> potions;
-    @Getter @Setter protected int potionEfficacity = 1;
+    @Getter @Setter protected int potionEfficacy = 1;
     @Getter protected String pet;
+    @Getter protected String woodCore;
 
     @Getter@Setter protected int wizardDamage;
     @Getter@Setter protected int wizardAdditionalDamage;
     @Getter@Setter protected int wizardHealth;
     @Getter@Setter protected int wizardAccuracy;
 
-    @Getter private final int basicWizardDamage = 5;
-    @Getter private final int basicWizardAdditionalDamage = 15;
+    @Getter private final int basicWizardDamage = 10;
+    @Getter private final int basicWizardAdditionalDamage = 17;
     @Getter private final int basicWizardHealth = 50;
     @Getter private final int basicWizardAccuracy = 7;
 

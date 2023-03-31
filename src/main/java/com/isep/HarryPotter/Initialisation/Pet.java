@@ -1,13 +1,13 @@
-package org.example;
+package com.isep.HarryPotter.Initialisation;
 
 import lombok.Getter;
 
-enum Pet {
+public enum Pet {
 
     CAT("Chat"),
-    DOG("Chien"),
-    OWL("Hibou");
-
+    RAT("Rat"),
+    OWL("Hibou"),
+    TOAD("Crapaud");
     @Getter private final String myPet;
 
     Pet(String myPet){

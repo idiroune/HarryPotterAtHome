@@ -1,4 +1,4 @@
-package org.example;
+package com.isep.HarryPotter.Initialisation.House;
 
 import lombok.Getter;
 public class House {

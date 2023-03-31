@@ -1,18 +1,20 @@
-package org.example;
+package com.isep.HarryPotter.CharacterAndEnemy;
+
+import com.isep.HarryPotter.Initialisation.Color;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class Wizard extends Character{
+public class Wizard extends Character {
 
-
-    public Wizard(String wizardName, String house, List<String> learntSpell, List<String> potions , String pet){
+    public Wizard(String wizardName, String house, List<String> learntSpell, List<String> potions , String pet, String woodCore){
 
         this.wizardName = wizardName;
         this.house = house;
         this.learntSpell = learntSpell;
         this.potions = potions;
         this.pet = pet;
+        this.woodCore = woodCore;
 
         setWizardDamage(getBasicWizardDamage() + getBonusDamage());
         setWizardAdditionalDamage(getBasicWizardAdditionalDamage() + getBonusBonusDamage());
@@ -20,7 +22,7 @@ public class Wizard extends Character{
         setWizardAccuracy(getBasicWizardAccuracy() + getBonusAccuracy());
 
         switch (house) {
-            case "Poufsouffle" -> setPotionEfficacity(2);
+            case "Poufsouffle" -> setPotionEfficacy(2);
             case "Serpentard" -> setWizardAdditionalDamage(getBasicWizardAdditionalDamage());
             case "Gryffondor" -> setWizardHealth(getBasicGryffondorHealth());
             case "Serdaigle" -> setWizardAccuracy(getBasicSerdaigleAccuracy());
@@ -41,7 +43,7 @@ public class Wizard extends Character{
         }
     }
 
-    void UpdateStatut() throws InterruptedException{
+    public void UpdateStatut() throws InterruptedException{
 
         Scanner scanner = new Scanner(System.in);
 
@@ -64,15 +66,15 @@ public class Wizard extends Character{
                 case "1" -> {
                     setBonusDamage(getBonusDamage() + 2);
                     setBonusBonusDamage(getBonusBonusDamage() + 5);
-                    System.out.println("Vous obtenez plus de dégâts !");
+                    System.out.println(Color.ROUGE + "Vous obtenez plus de dégâts !" + Color.RESET);
                 }
                 case "2" -> {
                     setBonusHealth(getBonusHealth() + 10);
-                    System.out.println("Vous obtenez plus de vie !");
+                    System.out.println(Color.VERT + "Vous obtenez plus de vie !" + Color.RESET);
                 }
                 case "3" -> {
                     setBonusAccuracy(getBonusAccuracy() + 2);
-                    System.out.println("Vous obtenez plus de précision !");
+                    System.out.println(Color.JAUNE + "Vous obtenez plus de précision !" + Color.RESET);
                 }
             }
             if(!update.equals("1") && !update.equals("2") && !update.equals("3")){
@@ -81,6 +83,8 @@ public class Wizard extends Character{
         }while (!update.equals("1") && !update.equals("2") && !update.equals("3"));
 
         ResetWizardStatut();
+
+        Thread.sleep(2000);
 
     }
 }

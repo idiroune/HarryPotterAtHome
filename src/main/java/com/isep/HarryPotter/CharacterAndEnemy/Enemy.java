@@ -1,4 +1,4 @@
-package org.example;
+package com.isep.HarryPotter.CharacterAndEnemy;
 
 public class Enemy extends AbstractEnemy {
 
