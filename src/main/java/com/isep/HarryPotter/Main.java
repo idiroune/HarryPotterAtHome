@@ -195,7 +195,6 @@ class Introduction {
 
         Wizard wizard = new Wizard(wizardname, sortingHat.getRandomHouse(), learntSpells.getLearntSpells(), potions.getPotions(), myPet, core.getRandomCore());
 
-        /*ajouter dans les composants la baguette*/
         MakeCharacter MakeCharacter = new MakeCharacter();
         MakeCharacter.makeCharacter(wizard);
 

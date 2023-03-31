@@ -13,8 +13,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SomethingWithPotionsTest {
-    private Wizard wizard;
-    private final InputStream systemIn = System.in;
 
     @BeforeEach
     public void setUp() {

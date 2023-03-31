@@ -163,7 +163,7 @@ public class Fight {
                 critical = 1;
 
             } else {
-                if (choice == "3" && dodge != 0) {
+                if (choice.equals("3") && dodge != 0) {
                     /*Si le sorcier tente d'esquiver mais que les actions précédentes n'ont pas aboutie*/
                     System.out.println("Malgré votre tentative vous ne parvenez pas à esquiver l'attaque.");
 

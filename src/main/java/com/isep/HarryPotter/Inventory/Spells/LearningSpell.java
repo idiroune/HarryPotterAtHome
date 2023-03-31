@@ -1,8 +1,8 @@
 package com.isep.HarryPotter.Inventory.Spells;
 
 
-import com.isep.HarryPotter.Initialisation.MakeCharacter;
 import com.isep.HarryPotter.CharacterAndEnemy.Wizard;
+import com.isep.HarryPotter.Initialisation.MakeCharacter;
 
 public class LearningSpell extends AbstractSpell {
 
@@ -11,6 +11,7 @@ public class LearningSpell extends AbstractSpell {
     }
 
     public void learnSpell() throws InterruptedException {
+
         Wizard wizard = MakeCharacter.getWizard();
 
         boolean ok = false;
@@ -68,10 +69,7 @@ public class LearningSpell extends AbstractSpell {
     }
 
     public void UseSpell(){
-
         Wizard wizard = MakeCharacter.getWizard();
-
-        String SpellUse = "";
 
         System.out.println("Sorts appris : ");
         for (int i = 0; i < wizard.getLearntSpell().size(); i++) {
@@ -80,17 +78,19 @@ public class LearningSpell extends AbstractSpell {
 
         if (scanner.hasNextInt()) {
 
-            int SpellUseNumber = scanner.nextInt();
+            int SpellUseChoice = scanner.nextInt();
 
-            if (1 <= SpellUseNumber && SpellUseNumber <= wizard.getLearntSpell().size()) {
-                SpellUse = wizard.getLearntSpell().get(SpellUseNumber - 1);
+            if (1 <= SpellUseChoice && SpellUseChoice <= wizard.getLearntSpell().size()) {
+                String SpellUse = wizard.getLearntSpell().get(SpellUseChoice - 1);
                 System.out.println(SpellUse + " !!\n");
 
+                setSpellUsed(SpellUse);
+
+            } else {
+                System.out.print("Ca n'est pas le moment de jouer.");
             }
-            else {
-                System.out.println("Ca n'est pas le moment de jouer.");
-            }
-            setSpellUsed(SpellUse);
+        }else {
+            setSpellUsed("");
         }
     }
 }

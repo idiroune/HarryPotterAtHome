@@ -9,7 +9,7 @@ public class SomethingWithPotions extends AbstractPotion {
 
     public void MakePotion() throws InterruptedException {
         Wizard wizard = MakeCharacter.getWizard();
-        Scanner scanner = new Scanner(System.in);
+
         boolean ok = false;
 
         Thread.sleep(2000);
@@ -68,12 +68,10 @@ public class SomethingWithPotions extends AbstractPotion {
         Thread.sleep(3000);
         System.out.println("Voilà ça sera tout ! On se retrouve pour le prochain cours, d'ici là prenez soin de vous ! »\n");
         Thread.sleep(2000);
-
     }
 
     public void UsePotion() {
         Wizard wizard = MakeCharacter.getWizard();
-        Scanner scanner = new Scanner(System.in);
 
         if (wizard.getPotions().isEmpty()) {
             System.out.println("Vous n'avez aucune potion en votre possession...");

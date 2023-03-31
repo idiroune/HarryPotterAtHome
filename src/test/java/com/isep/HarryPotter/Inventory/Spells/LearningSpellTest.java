@@ -31,7 +31,6 @@ class LearningSpellTest {
         Wizard wizard = MakeCharacter.getWizard();
 
         // Mock user input
-        String input = "Wingardium Leviosa\n";
         InputStream inputStream = new ByteArrayInputStream("Wingardium Leviosa\nWingardium Leviosa\nWingardium Leviosa\n".getBytes());
         System.setIn(inputStream);
 
@@ -44,6 +43,7 @@ class LearningSpellTest {
 
     @Test
     void useSpellTest() {
+        Wizard wizard = MakeCharacter.getWizard();
         // Add spell to learnt spells
         wizard.getLearntSpell().add("Wingardium Leviosa");
 
@@ -51,7 +51,7 @@ class LearningSpellTest {
         InputStream inputStream = new ByteArrayInputStream("1".getBytes());
         System.setIn(inputStream);
 
-        LearningSpell learningSpell = new LearningSpell("Wingardium Leviosa");
+        LearningSpell learningSpell = new LearningSpell("");
         learningSpell.UseSpell();
 
         // Check if spell used has been set correctly
