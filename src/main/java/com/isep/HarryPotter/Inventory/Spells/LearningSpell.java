@@ -4,6 +4,8 @@ package com.isep.HarryPotter.Inventory.Spells;
 import com.isep.HarryPotter.CharacterAndEnemy.Wizard;
 import com.isep.HarryPotter.Initialisation.MakeCharacter;
 
+import java.util.Scanner;
+
 public class LearningSpell extends AbstractSpell {
 
     public LearningSpell(String spellOption) {
@@ -11,6 +13,7 @@ public class LearningSpell extends AbstractSpell {
     }
 
     public void learnSpell() throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
 
         Wizard wizard = MakeCharacter.getWizard();
 
@@ -21,14 +24,14 @@ public class LearningSpell extends AbstractSpell {
 
         System.out.println("\n« Bienvenu à votre cours de magie !");
         Thread.sleep(2000);
-        System.out.print("Aujourd'hui nous allons apprendre " + this.spellOption + ", un enchantement qui ");
+        System.out.print("Aujourd'hui nous allons apprendre \"" + this.spellOption + "\", un enchantement qui ");
 
         switch (this.spellOption) {
             case "Wingardium Leviosa" ->
                     System.out.println("permet au sorcier qui l'utilise de faire flotter des objets dans l'air et de les déplacer.");
             case "Accio" -> System.out.println("permet d'attirer vers soi des objets éloignés.");
             case "Expecto Patronum" -> {
-                System.out.println("fait apparaître son patronus, un esprit protecteur contre les détraqueurs.");
+                System.out.println("fait apparaître son patronus, votre esprit protecteur contre les détraqueurs.");
                 Thread.sleep(2000);
                 System.out.println("...j'espère que vous n'aurez pas à vous en servir !");
             }
@@ -69,6 +72,8 @@ public class LearningSpell extends AbstractSpell {
     }
 
     public void UseSpell(){
+        Scanner scanner = new Scanner(System.in);
+
         Wizard wizard = MakeCharacter.getWizard();
 
         System.out.println("Sorts appris : ");
@@ -87,10 +92,10 @@ public class LearningSpell extends AbstractSpell {
                 setSpellUsed(SpellUse);
 
             } else {
-                System.out.print("Ca n'est pas le moment de jouer.");
+                System.out.print("Non ! Il n'y a rien qui vous permet d'utiliser ce sort !");
             }
         }else {
-            setSpellUsed("");
+            System.out.print("Ca n'est pas le moment de jouer.");
         }
     }
 }

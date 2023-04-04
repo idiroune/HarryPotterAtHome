@@ -31,6 +31,7 @@ public class Main {
         SeventhLevel seventhLevel = new SeventhLevel();
 
         Introduction.Introduction();
+        sixthLevel.SixthLevel();
 
         firstLevel.FirstLevel();
         secondLevel.SecondLevel();
@@ -54,19 +55,19 @@ class Introduction {
         boolean ok = false;
 
         Thread.sleep(1000);
-        System.out.println("Proviseur :\n");
+        /*System.out.println("Proviseur :\n");
 
         System.out.println("« Eh... ");
         Thread.sleep(2000);
         System.out.println("Eh oh...");
         Thread.sleep(2000);
-        System.out.println("Eh oh jeune Sorcier.");
+        System.out.println("Eh oh jeune Sorcier(e).");
         Thread.sleep(2000);
-        System.out.println("Vous allez bien ? Vous semblez un peu perdu... Quel est votre nom ?");
+        System.out.println("Vous allez bien ? Vous semblez un peu perdu... Quel est votre nom ?");*/
 
         String wizardname = scanner.nextLine();
 
-        System.out.println(wizardname + " vous dites ? C'est étrange ça ne me dit rien.");
+        /*System.out.println(wizardname + " vous dites ? C'est étrange ça ne me dit rien.");
         Thread.sleep(2000);
         System.out.println("Une seconde...");
         Thread.sleep(1200);
@@ -107,10 +108,10 @@ class Introduction {
         Thread.sleep(2000);
         System.out.println("Avec toute cette discussion, j'ai trouvé la maison parfaite pour toi qui est...");
         Thread.sleep(3000);
-        System.out.println(sortingHat.getRandomHouse());
+        System.out.println(sortingHat.getRandomHouse() + " !!");
         String attributHouse = sortingHat.getRandomHouse();
-        Thread.sleep(2000);
-        System.out.print("Je n'espère pas que cela te sera utile, mais en étant dans cette maison ");
+        Thread.sleep(3000);
+        System.out.print("\nJe n'espère pas que cela te sera utile, mais en étant dans cette maison ");
         if (attributHouse.equals("Poufsouffle")) {
             System.out.println("tes potions seront plus efficaces.");
 
@@ -121,23 +122,23 @@ class Introduction {
             System.out.println("tu seras plus résistant aux dégâts.");
 
         } else if (attributHouse.equals("Serdaigle")) {
-            System.out.println("Tu auras plus de précision.");
+            System.out.println("tu auras plus de précision dans le jet de tes sorts.");
         }
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         System.out.println("Voilà ce sera tout.");
         Thread.sleep(2000);
         System.out.print("Bon courage, ");
         Thread.sleep(2500);
-        System.out.println( wizardname +".»");
+        System.out.print( wizardname +".»");
         Thread.sleep(2000);
 
-        System.out.println("Proviseur :\n");
+        System.out.println("\n\nProviseur :\n");
 
         System.out.println("« Bien " + wizardname +" ! Maintenant, il est temps que tu choisisses ton animal de compagnie !");
         Thread.sleep(2000);
         System.out.println("La magie a permis la naissance de multiples espèces extraordinaires.");
         Thread.sleep(2000);
-        System.out.println("\nMalheureusement, les seuls animaux acceptés dans l'école sont le :");
+        System.out.println("\nMalheureusement, les seuls animaux acceptés dans l'école sont le :");*/
 
         do {
             for (Pet pet : Pet.values()) {
@@ -206,7 +207,7 @@ class FirstLevel {
     public void FirstLevel() throws InterruptedException {
         Wizard wizard = MakeCharacter.getWizard();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("\nVotre première année se passe sans problème.");
         Thread.sleep(2000);
         System.out.println("Vous vous rendez ainsi à votre premier cours de potions.");
@@ -252,7 +253,7 @@ class SecondLevel {
 
         Wizard wizard = MakeCharacter.getWizard();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("\nVotre seconde année se passe sans problème.");
         Thread.sleep(2000);
         System.out.println("Vous vous rendez ainsi à votre cours de potions.");
@@ -289,7 +290,7 @@ class SecondLevel {
         Thread.sleep(2000);
         System.out.println("Et il semblerait qu'il se réveille !");
 
-        if (wizard.getHouse().equals("Griffondor")) {
+        if (wizard.getHouse().equals("Gryffondor")) {
             Thread.sleep(2000);
             System.out.println("Vous n'avez aucune chance avec votre misérable baguette.");
             Thread.sleep(2000);
@@ -302,6 +303,7 @@ class SecondLevel {
             System.out.println("\nFélicitations ! Vous avez mis le Basilic hors d'état de nuire !");
 
             wizard.UpdateStatut();
+
         } else {
             Thread.sleep(2000);
             System.out.println("Vite ! Il faut détruire le journal de Tom Jedusor en utilisant un des crocs du Basilic.");
@@ -351,7 +353,7 @@ class ThirdLevel {
     public void ThirdLevel() throws InterruptedException {
         Wizard wizard = MakeCharacter.getWizard();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("\nVotre troisième année se passe sans problème.");
         Thread.sleep(2000);
         System.out.println("Vous vous rendez ainsi à votre cours de potions.");
@@ -366,7 +368,7 @@ class ThirdLevel {
 
         System.out.println("En sortant de votre cours vous vous sentez assoiffé.");
         Thread.sleep(2000);
-        System.out.print(" Mais pas question de retourner dans aucunes toilettes du château !.");
+        System.out.println("Mais pas question de retourner dans aucunes toilettes du château !");
         Thread.sleep(2000);
         System.out.println("Mmmmh...");
         Thread.sleep(1500);
@@ -380,11 +382,11 @@ class ThirdLevel {
         Thread.sleep(2000);
         System.out.print("Oh !");
         Thread.sleep(2000);
-        System.out.print("Vous avez pris du muscle !");
+        System.out.print(" Vous avez pris du muscle !");
         Thread.sleep(2000);
-        System.out.print("Et votre visage a un teint bien meilleur !");
+        System.out.print(" Et votre visage a un teint bien meilleur !");
         Thread.sleep(2000);
-        System.out.println("Et vous...volez ?!");
+        System.out.print(" Et vous...volez ?!\n");
         Thread.sleep(2000);
         System.out.println("Mais ca n'est pas vous que vous admiriez, c'est un détraqueur !");
         Thread.sleep(2000);
@@ -411,7 +413,7 @@ class FourthLevel {
 
         Wizard wizard = MakeCharacter.getWizard();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("\nVotre quatrième année se passe sans problème.");
         Thread.sleep(2000);
         System.out.println("Vous vous rendez ainsi à votre cours de potions.");
@@ -424,7 +426,7 @@ class FourthLevel {
         System.out.println("Élève :\n");
         System.out.println("« " + wizard.getWizardName() + " ! Excuses-moi mais tu es appelé pour le Tournoi des Trois Sorciers !");
         Thread.sleep(2000);
-        System.out.println("\n Le quoi ?\n");
+        System.out.println("\nLe quoi ?\n");
         Thread.sleep(2000);
         System.out.println("Élève :\n");
         System.out.println("«Le Tournoi des Trois Sorciers !");
@@ -434,9 +436,9 @@ class FourthLevel {
         System.out.println("\n Mmhhh... est-ce qu'il est possible de ne faire que la dernière partie du test ?\n");
         Thread.sleep(2000);
         System.out.println("Élève :\n");
-        System.out.print("« Euh.. je ne sais pas... peut-être ?");
+        System.out.print("«Euh.. je ne sais pas... peut-être ?");
         Thread.sleep(2000);
-        System.out.print("Aucune règle n'est écrite sur ça...»");
+        System.out.print(" Aucune règle n'est écrite sur ça...»");
         Thread.sleep(2000);
         System.out.println("\n\nParfait dans ce cas j'y vais !\n");
 
@@ -454,7 +456,7 @@ class FourthLevel {
         System.out.println("C'était de vous dont ils étaient à la recherche !");
 
         Thread.sleep(2000);
-        System.out.println("Peter Pettigrow :\n");
+        System.out.println("\nPeter Pettigrow :\n");
         System.out.println("« Il est là " + Color.ROUGE + "Voldemort" + Color.RESET + " ! Attrapons le !»");
         Thread.sleep(2000);
         System.out.print("\n" + Color.ROUGE + "Voldemort" + Color.RESET + " ?");
@@ -463,7 +465,7 @@ class FourthLevel {
         Thread.sleep(2000);
         System.out.print("vous n'avez jamais entendu ce nom auparavant mais vous semble familier.");
         Thread.sleep(2000);
-        System.out.println("Vite ! Vous êtes éloigné du Portoloin mais il vous faut l'attraper pour partir au plus loin !\n");
+        System.out.println("\nVite ! Vous êtes éloigné du Portoloin mais il vous faut l'attraper pour partir au plus loin !");
         Thread.sleep(2000);
         System.out.print("Vois tenez fermement votre baguette, ");
         Thread.sleep(2000);
@@ -514,7 +516,7 @@ class FifthLevel {
 
         Wizard wizard = MakeCharacter.getWizard();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("\nVotre cinquième année se passe sans problème.");
         Thread.sleep(2000);
         System.out.println("Vous vous rendez ainsi à votre cours de potions.");
@@ -535,7 +537,7 @@ class FifthLevel {
         Thread.sleep(2000);
         System.out.println("Peut-être arriverez-vous à en prendre un ou deux pendant le combat pour vous en servir contre elle.");
 
-        Enemy enemy = new Enemy("Dolores Ombrage", 9, 9, 400, 5, "");
+        Enemy enemy = new Enemy("Dolores Ombrage", 9, 9, 984862, 5, "");
         Fight fight = new Fight(wizard, enemy);
         fight.BattleBegin();
 
@@ -558,7 +560,7 @@ class SixthLevel {
 
         Wizard wizard = MakeCharacter.getWizard();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("\nVotre sixième année se passe sans problème.");
         Thread.sleep(2000);
         System.out.println("Vous vous rendez ainsi à votre cours de potions.");
@@ -583,7 +585,7 @@ class SixthLevel {
         Thread.sleep(2000);
         System.out.print("proutsh... »");
         Thread.sleep(2000);
-        System.out.println("Vous n'avez pas le temps de finir d'écouter les dernières paroles de cette personne que vous vous retrouvez face à un Mangemort.\n");
+        System.out.println("\nVous n'avez pas le temps de finir d'écouter les dernières paroles de cette personne que vous vous retrouvez face à un Mangemort.\n");
 
         int choice = 0;
 
@@ -630,7 +632,7 @@ class SeventhLevel {
 
         Wizard wizard = MakeCharacter.getWizard();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("\nVotre cinquième année se passe sans problème.");
         Thread.sleep(2000);
         System.out.println("Vous vous rendez ainsi à votre cours de magie.");

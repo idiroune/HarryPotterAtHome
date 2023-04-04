@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class SomethingWithPotions extends AbstractPotion {
 
     public void MakePotion() throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+
         Wizard wizard = MakeCharacter.getWizard();
 
         boolean ok = false;
@@ -71,6 +73,8 @@ public class SomethingWithPotions extends AbstractPotion {
     }
 
     public void UsePotion() {
+        Scanner scanner = new Scanner(System.in);
+
         Wizard wizard = MakeCharacter.getWizard();
 
         if (wizard.getPotions().isEmpty()) {
@@ -88,7 +92,7 @@ public class SomethingWithPotions extends AbstractPotion {
                 if (choix > 0 && choix <= wizard.getPotions().size()) {
                     String potion = wizard.getPotions().get(choix - 1);
                     wizard.getPotions().remove(choix - 1);
-                    System.out.println("Vous prenez une longue gorgée de votre " + potion + " vous attribuant tous ses bienfaits.");
+                    System.out.print("Vous prenez une longue gorgée de votre " + potion + " vous attribuant tous ses bienfaits.");
                     switch (potion) {
                         case "Philtre Revigorant" ->
                                 wizard.setWizardHealth(wizard.getWizardHealth() + (healthPotion * wizard.getPotionEfficacy()));
@@ -98,10 +102,10 @@ public class SomethingWithPotions extends AbstractPotion {
                                 wizard.setWizardAccuracy(wizard.getWizardAccuracy() + (accuracyPotion * wizard.getPotionEfficacy()));
                     }
                 } else {
-                    System.out.println("En cherchant une potion qui n'existe pas tu as perdu du temps !");
+                    System.out.print("En cherchant une potion qui n'existe pas tu as perdu du temps !");
                 }
             } else {
-                System.out.println("En cherchant une potion qui n'existe pas tu as perdu du temps !");
+                System.out.print("Ca n'est pas le moment de jouer.");
             }
         }
     }
