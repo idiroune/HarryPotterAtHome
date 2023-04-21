@@ -733,7 +733,6 @@ class SeventhLevel {
                 System.out.println("\n\nSans hésitation aucune vos prenez la main de Voldemort, oui, car vous percevez en lui du réconfort et de la paix.");
                 Thread.sleep(5000);
                 System.out.print("THE END");
-                Thread.sleep(2000);
             }
 
         }
