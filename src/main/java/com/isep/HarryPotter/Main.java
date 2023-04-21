@@ -55,7 +55,7 @@ class Introduction {
         boolean ok = false;
 
         Thread.sleep(1000);
-        /*System.out.println("Proviseur :\n");
+        System.out.println("Proviseur :\n");
 
         System.out.println("« Eh... ");
         Thread.sleep(2000);
@@ -63,11 +63,11 @@ class Introduction {
         Thread.sleep(2000);
         System.out.println("Eh oh jeune Sorcier(e).");
         Thread.sleep(2000);
-        System.out.println("Vous allez bien ? Vous semblez un peu perdu... Quel est votre nom ?");*/
+        System.out.println("Vous allez bien ? Vous semblez un peu perdu... Quel est votre nom ?");
 
         String wizardname = scanner.nextLine();
 
-        /*System.out.println(wizardname + " vous dites ? C'est étrange ça ne me dit rien.");
+        System.out.println(wizardname + " vous dites ? C'est étrange ça ne me dit rien.");
         Thread.sleep(2000);
         System.out.println("Une seconde...");
         Thread.sleep(1200);
@@ -138,7 +138,7 @@ class Introduction {
         Thread.sleep(2000);
         System.out.println("La magie a permis la naissance de multiples espèces extraordinaires.");
         Thread.sleep(2000);
-        System.out.println("\nMalheureusement, les seuls animaux acceptés dans l'école sont le :");*/
+        System.out.println("\nMalheureusement, les seuls animaux acceptés dans l'école sont le :");
 
         do {
             for (Pet pet : Pet.values()) {
@@ -248,17 +248,7 @@ class FirstLevel {
     }
 }
 class SecondLevel {
-    public void SecondLevel() throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-
-        Wizard wizard = MakeCharacter.getWizard();
-
-        Thread.sleep(4000);
-        System.out.println("\nVotre seconde année se passe sans problème.");
-        Thread.sleep(2000);
-        System.out.println("Vous vous rendez ainsi à votre cours de potions.");
-
-        SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
+    public void SecondLevel() throws InterruptedException {Scanner scanner = new Scanner(System.in);Wizard wizard = MakeCharacter.getWizard();Thread.sleep(4000);System.out.println("\nVotre seconde année se passe sans problème.");Thread.sleep(2000);System.out.println("Vous vous rendez ainsi à votre cours de potions.");SomethingWithPotions SomethingWithPotions = new SomethingWithPotions();
         SomethingWithPotions.MakePotion();
 
         System.out.println("Oh ! Il est l'heure d'aller vous rendre à votre cours de magie !");
@@ -732,7 +722,7 @@ class SeventhLevel {
                 System.out.println("On dirait que Voldemort a visé votre collier.");
 
                 System.out.println("\nVoldemort :\n");
-                System.out.println("« Chéri tout vas as bien, il fallait que j'enlève cette malédiction qui pensait sur toi depuis des lustre. »");
+                System.out.println("« Mon amour tout va bien, il fallait que j'enlève cette malédiction qui pensait sur toi depuis des lustre. »");
                 Thread.sleep(2000);
                 System.out.print("« Viens");
                 Thread.sleep(2000);
