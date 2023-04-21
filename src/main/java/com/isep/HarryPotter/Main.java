@@ -31,7 +31,6 @@ public class Main {
         SeventhLevel seventhLevel = new SeventhLevel();
 
         Introduction.Introduction();
-        sixthLevel.SixthLevel();
 
         firstLevel.FirstLevel();
         secondLevel.SecondLevel();

@@ -18,12 +18,12 @@ public abstract class Character {
     @Getter@Setter protected int wizardHealth;
     @Getter@Setter protected int wizardAccuracy;
 
-    @Getter private final int basicWizardDamage = 10;
-    @Getter private final int basicWizardAdditionalDamage = 17;
+    @Getter private final int basicWizardDamage = 14;
+    @Getter private final int basicWizardAdditionalDamage = 21;
     @Getter private final int basicWizardHealth = 50;
     @Getter private final int basicWizardAccuracy = 7;
 
-    @Getter private final int basicSerpentardAdditionalDamage = 25;
+    @Getter private final int basicSerpentardAdditionalDamage = 31;
     @Getter private final int basicGryffondorHealth = 80;
     @Getter private final int basicSerdaigleAccuracy = 12;
 
